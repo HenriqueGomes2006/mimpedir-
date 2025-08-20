@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mimpedir/usuario.dart';
+import 'tipo.dart';
+import 'restaurante.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +20,20 @@ class MyApp extends StatelessWidget {
       senha: "@senhaforte123"
     );
 
+    Tipo t = Tipo(
+      codigo: 1,
+      nome: "Japonesa"
+    );
+
+    Restaurante r = Restaurante(
+      codigo: 1,
+      nome: "Faustão Restaurante",
+      latitude: "21.5521",
+      longitude: "23.2144",
+      proprietario: u,
+      tipo: t
+    );
+
     return MaterialApp(
      home: Scaffold(
        appBar: AppBar (
@@ -30,7 +46,9 @@ class MyApp extends StatelessWidget {
              Text("Nome: ${u.nome} "),
              Text("Código: ${u.codigo} "),
              Text("Login: ${u.login} "),
-             Text("Senha: ${u.senha} ")
+             Text("Senha: ${u.senha} "),
+             Text(": Propietario ${r.proprietario?.nome}"),
+             Text("Tipo ${r.tipo?.nome}")
            ],
          ),
          ),
