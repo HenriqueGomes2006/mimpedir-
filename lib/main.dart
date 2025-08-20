@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 
     Tipo t = Tipo(
       codigo: 1,
-      nome: "Japonesa"
+      nome: "Japones"
     );
 
     Restaurante r = Restaurante(

@@ -24,7 +24,7 @@ int? get codigo => _codigo;
   String? get nome=> _nome;
   String? get latitude => _latitude;
   String? get longitude=> _longitude;
-  Usuario? get proprietario => proprietario;
+  Usuario? get proprietario => _proprietario;
   Tipo? get tipo => _tipo;
   //setters
 //metodo ao estilo dart
