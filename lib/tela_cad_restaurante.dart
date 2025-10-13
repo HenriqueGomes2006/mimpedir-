@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mimpedir/banco/restaurante_DAO.dart';
 import 'package:mimpedir/tipo.dart';
 
 import 'banco/tipo_DAO_dart.dart';
@@ -74,7 +75,26 @@ class TelaCadRestauranteState extends State<TelaCadRestaurante>{
             validator: (String? value) {},
             controller: longitudeController,
           ),
-          ElevatedButton(onPressed: (){}, child: Row(
+          ElevatedButton(onPressed: ()async{
+            final sucesso = await RestauranteDAO.cadastrarRestaurante(nomeController.text, latitudeController.text, longitudeController.text, tipoCulinaria);
+           String msg = 'Erro não Cadastrado. Verifique os dados';
+           Color corFundo = Colors.red;
+
+
+            if(sucesso > 0) {
+              msg =
+              '${nomeController.text}"cadastro com sucesso! ID: $sucesso"';
+              corFundo = Colors.green;
+            }
+            ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(msg),
+              backgroundColor: corFundo,
+              duration: Duration(seconds: 5),
+              )
+            );
+            },
+              child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.save),
